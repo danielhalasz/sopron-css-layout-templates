@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  height: 100vh; /* teljes kepernyomagassagot toltse be */
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr; /* oszlopok szamanak es meretenek megadasa */
+  grid-template-rows: 1fr 3fr 1fr; /* sorok szamanak es meretenek megadasa */
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+  grid-gap: 10px;
+}
+
+.header {
+  grid-area: header;
+  background-color: #7b1515;
+  padding: 20px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #1ba4e8;
+  padding: 20px;
+}
+
+.content {
+  grid-area: content;
+  background-color: #d0d615;
+  padding: 20px;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #e819a3;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer";
+  }
+  .footer {
+    font-size: 40px;
+  }
+}

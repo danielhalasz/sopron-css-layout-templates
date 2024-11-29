@@ -1,0 +1,112 @@
+/* Betucsalad importalasa */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Egesz dokumentumra a bongeszo alapbeallitasok nullazasa */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* a body egysegen belul 2 div van, amiket flexbox segitsegevel egy oszlopba teszunk */
+
+body {
+  background-color: blueviolet;
+  font-family: "Roboto", sans-serif; /* az importalt betucsalad hasznalata */
+  height: 100vh; /* teljes kepernyomagassagot toltse be */
+  display: flex; /* flexbox hasznalata */
+  flex-direction: column; /* oszlopok */
+  justify-content: center; /* oszlopok egyik tengely menten kozepen */
+  align-items: center; /* oszlopok masik tengely menten kozepen */
+}
+
+.kontener {
+  background-color: brown;
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative; /*ezt azert kell megadni, hogy aztan a kepet ehhez kepest tudjuk majd elhelyezni*/
+}
+
+.doboz {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  margin: 10px 10px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 6px double rgb(59, 197, 13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.doboz:hover {
+  background-color: rgb(238, 219, 8);
+  width: 110px;
+  height: 110px;
+  transition: all ease-in 200ms; /* a doboz alaphelyzethez kepest, az uj nezetet egy animacioval jelenitjuk meg */
+}
+
+.kep {
+  position: absolute; /* ehhez kellett a kontenert relative-ra allitani */
+  top: 0;
+  right: 0;
+}
+
+img {
+  display: block; /* az img tag alapbol nem block elem, ezert kell megadni */
+  margin-left: auto; /* hogy a kepet a jobb sarokba toljuk) */
+  width: 80%;
+}
+
+.masodik {
+  background-image: url("https://loremflickr.com/800/200");
+  background-size: cover; /* hogy kitoltse a kep a teljes kontenert */
+  background-position: center;
+}
+
+@media (max-width: 845px) {
+  /* 845px alatt ezeker a beallitasokat alkalmazza */
+  .doboz {
+    width: 80px;
+    height: 80px;
+  }
+  .doboz:hover {
+    background-color: rgb(0, 102, 32);
+    color: #ffffff;
+    width: 88px;
+    height: 88px;
+    transition: all ease-in 200ms;
+  }
+  .kontener {
+    background-color: red;
+    min-width: 500px;
+  }
+}
+
+@media (min-width: 1100px) {
+  /* 1100px felett pedig ezeket a beallitasokat alkalmazza */
+  .kontener {
+    background-color: darkorange;
+  }
+  .doboz {
+    width: 120px;
+    height: 120px;
+  }
+  .doboz:hover {
+    background-color: rgb(0, 102, 32);
+    color: white;
+    width: 130px;
+    height: 130px;
+    transition: all ease-in 200ms;
+  }
+}
